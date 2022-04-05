@@ -1,0 +1,6 @@
+{{title}}:<br/>
+<select class="box" (change)="sendValue()" [(ngModel)]="selectedUnit">
+    <option *ngFor="let unit of units | keyvalue" [value]="unit.key">
+        {{unit.value}}
+    </option>
+</select>

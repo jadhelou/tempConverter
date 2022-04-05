@@ -1,0 +1,12 @@
+<div id="popup">
+    <h2 mat-dialog-title>{{this.description}}</h2>
+
+    <mat-dialog-content>
+        {{this.value}}
+    </mat-dialog-content>
+    <div class="align-left">
+        <mat-dialog-actions >
+            <button class="mat-raised-button"(click)="close()">Close</button>
+        </mat-dialog-actions>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+#main{
+    margin-top: 10%;
+    margin-left: 15%;
+    border: black 1px solid;
+    width: 1000px;
+}
+
+.internalMatGrid{
+    min-width:40%;
+}

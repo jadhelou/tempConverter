@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.mat-raised-button{
+    background-color: #27732e; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}

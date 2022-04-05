@@ -1,0 +1,18 @@
+#popup{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 400px;
+    height: 100px;
+    border: black solid 1px;
+    padding: 20px;
+    background-color: white;
+}
+
+.align-left{
+    position:absolute;
+    right: 0px;
+}
