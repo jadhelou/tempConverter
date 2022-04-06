@@ -1,24 +1,16 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { InteractionService } from '../interaction.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css']
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent{
 
   @Input() title: string
   @Output() messageEvent = new EventEmitter<string>()
-  valueMessage: string
-
-  constructor(private interactionService: InteractionService) { }
-
-  ngOnInit(): void {
-    this.interactionService.valueMessage$.subscribe(message => this.valueMessage = message)
-  }
 
   convertClick(){
-    this.messageEvent.emit(this.valueMessage)
+    this.messageEvent.emit()
   }
 }

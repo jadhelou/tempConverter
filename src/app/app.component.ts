@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { TempUnitComponent } from './temp-unit/temp-unit.component';
+import { TextboxComponent } from './textbox/textbox.component';
 
 
 @Component({
@@ -10,31 +12,36 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 })
 export class AppComponent{
   title = 'tempConverter';
- 
-  constructor(private dialog: MatDialog){
+  result = '';
+  @ViewChild(TextboxComponent) txtValue: TextboxComponent
+  @ViewChild(TempUnitComponent) ddlUnit: TempUnitComponent
 
-  }
+  constructor(private dialog: MatDialog){}
   
-  receiveMessage($event: any){
-    console.log($event)
+  receiveMessage(){
     
-    if($event && $event.includes("val:")){
-      let numVal = $event.substring($event.indexOf("val:") + 4)
-      if(isNaN(+numVal)){
+    if(this?.txtValue?.numValue){
+      if(isNaN(+this.txtValue.numValue)){
         const dialogConfig = new MatDialogConfig();
         
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
         dialogConfig.data = {
           title: "Temperature Converter",
-          value: numVal + ' is not a number!'
+          value: this.txtValue.numValue + ' is not a number!'
         }
         this.dialog.closeAll()
         this.dialog.open(PopUpComponent, dialogConfig)
+      } else{
+        let numResult: number
+        if(this?.ddlUnit.selectedUnit == "C"){
+          numResult = (+this.txtValue.numValue - 32) * 5/9
+          this.result = (Math.round(numResult * 100) / 100).toFixed(2); + ''
+        } else if(this?.ddlUnit.selectedUnit == "F"){
+          numResult = (+this.txtValue.numValue * 1.8) + 32
+          this.result = (Math.round(numResult * 100) / 100).toFixed(2); + ''
+        }
       }
-    } else if($event && $event.includes("unit:")){
-      let unit = $event.substring($event.indexOf("unit:") + 4)
-      
     } else{
       const dialogConfig = new MatDialogConfig();
         

@@ -17,11 +17,15 @@
                 </mat-grid-tile>
 
                 <mat-grid-tile colspan="2">
-                    <app-button (messageEvent)="receiveMessage($event)" title="Convert"></app-button>
+                    <app-button (messageEvent)="receiveMessage()" title="Convert"></app-button>
                 </mat-grid-tile>
 
             </mat-grid-list>
         </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <h2>Result: {{this.result}}</h2>
     </mat-grid-tile>
 
 </mat-grid-list>

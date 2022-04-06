@@ -12,7 +12,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PopUpComponent } from './pop-up/pop-up.component'
-import { InteractionService } from './interaction.service';
 
 
 @NgModule({
@@ -32,8 +31,7 @@ import { InteractionService } from './interaction.service';
     MatGridListModule
   ],
   providers: [ 
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
-    InteractionService
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent],
   entryComponents: [PopUpComponent]
