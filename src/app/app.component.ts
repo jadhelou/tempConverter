@@ -36,10 +36,10 @@ export class AppComponent{
         let numResult: number
         if(this?.ddlUnit.selectedUnit == "C"){
           numResult = (+this.txtValue.numValue - 32) * 5/9
-          this.result = (Math.round(numResult * 100) / 100).toFixed(2); + ''
+          this.result = (Math.round(numResult * 100) / 100).toFixed(2)
         } else if(this?.ddlUnit.selectedUnit == "F"){
           numResult = (+this.txtValue.numValue * 1.8) + 32
-          this.result = (Math.round(numResult * 100) / 100).toFixed(2); + ''
+          this.result = (Math.round(numResult * 100) / 100).toFixed(2)
         }
       }
     } else{
